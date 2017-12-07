@@ -21,10 +21,12 @@ class Search extends Component {
 
     valueHandler = () => {
         clearTimeout(this.delayTimer);
-        this.delayTimer = setTimeout(() => 
+        this.delayTimer = setTimeout(() => {
+            this.setState({ isHidden: false });
             dataService.renderSearch(
                 this.search.value, this.collectData
-            ), 300);
+            )
+        }, 300);
     }
 
     reset = () => {
@@ -37,7 +39,7 @@ class Search extends Component {
         const { results } = this.state;
 
         return (
-            <form className='form-inline search-form'>
+            <form className='form-inline search-form' onSubmit={e => { e.preventDefault() }}>
                 <input className='form-control mr-sm-2' id='search' type='search' ref={node => { this.search = node }} onChange={this.valueHandler} placeholder='Search' aria-label='Search' />
                 <ul className={['search-list', 'list-group', 'list-group-flush', this.state.isHidden && 'd-none'].join(' ')}>
                     {results.map(item =>
