@@ -8,18 +8,18 @@ import MovieDetails from '../movie/MovieDetails';
 import '../css/App.css';
 
 class App extends Component {
-  render() {
-    return (
-      <div className='page-flexbox-wrapper'>
-        <Header />
-        <Switch>
-          <Route exact path='/' component={Main} />
-          <Route path='/:id' component={MovieDetails} />
-        </Switch>
-        <Footer />
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className='page-flexbox-wrapper'>
+                <Header />
+                <Switch>
+                    <Route exact path='/' component={Main} />
+                    <Route path='/:id' component={MovieDetails} />
+                </Switch>
+                <Footer />
+            </div>
+        );
+    }
 }
 
 export default App;

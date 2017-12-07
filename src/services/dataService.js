@@ -8,7 +8,7 @@ class DataService {
             method: 'get',
             url: BASE_URL,
             headers: { 'Content-Type': 'application/json' }
-        }
+        };
 
         axios(config)
             .then(({ data }) => successHandler(data))
@@ -20,7 +20,7 @@ class DataService {
             method: 'get',
             url: `${BASE_URL}/${showId}?embed[]=cast`,
             headers: { 'Content-Type': 'application/json' }
-        }
+        };
 
         axios(config)
             .then(({ data }) => successHandler(data))

@@ -6,7 +6,7 @@ class Footer extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { time: '' }
+        this.state = { time: '' };
     }
     componentDidMount() {
         setInterval(() => this.setState({ time: new Date().toLocaleString() }));
