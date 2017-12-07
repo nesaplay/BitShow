@@ -39,7 +39,7 @@ export default class Main extends Component {
     render() {
         return (
             <main className='container'>
-                <h3 className="text-center main-format">
+                <h3 className='text-center main-format'>
                     <span className='featured-title'>Featured shows</span>
                 </h3>
                 <div className='row'>

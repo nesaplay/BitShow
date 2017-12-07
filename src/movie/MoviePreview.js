@@ -15,13 +15,13 @@ const MoviePreview = props => {
             <Link to={`/${id}`}>
                 <div className="card">
                     <div className='container-item'>
-                        <img className="card-img-top rounded" src={imageSrc} alt="" />
+                        <img className='card-img-top rounded' src={imageSrc} alt="" />
                         <div className='overlay'>
                             <div className='info'>More Info</div>
                         </div>
                     </div>
-                    <div className="card-body">
-                        <p className="card-text">{name}</p>
+                    <div className='card-body'>
+                        <p className='card-text'>{name}</p>
                     </div>
                 </div>
             </Link>
