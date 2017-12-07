@@ -1,0 +1,35 @@
+.search-list {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    background-color: rgb(243, 230, 208);
+    width: 100%;
+    z-index: 1;
+}
+
+.search-list-item a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.search-list-item:hover {
+    background-color: #E2DCDE;
+    color: #28587B;
+    transition: all 0.3s;
+}
+
+.search-list-item {
+    color: black;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+.search-link-item {
+   display: block;
+}
+
+.form-control:focus {
+    border-color: #E2DCDE;
+    box-shadow: 0 0 0 0.2rem rgba(40,88,123,.35);
+}

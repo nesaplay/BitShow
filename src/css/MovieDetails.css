@@ -1,0 +1,37 @@
+.movie-info {
+    padding: 20px;
+}
+
+.badge-size {
+    font-size: 100%;
+}
+
+.title-bar {
+    padding: 10px;
+}
+
+.main-div {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.block {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    
+}
+
+.block:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.bg-header {
+    background-color: #E2DCDE;
+}
+
+.genre-format {
+    background-color: white;
+    color: inherit;
+}
