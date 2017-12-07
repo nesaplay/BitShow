@@ -4,3 +4,8 @@
     line-height: 60px;
     background-color: #E2DCDE;
 }
+
+.footer-copyright a {
+    color: inherit;
+    text-decoration: none;
+}

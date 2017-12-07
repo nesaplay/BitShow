@@ -45,8 +45,10 @@ class Search extends Component {
                     {results.map(item =>
                         <li className='list-group-item border search-list-item' key={item.show.id} onClick={this.reset}>
                             <Link className='search-link-item' to={`/${item.show.id}`}>
-                                {item.show.name}
-                                <span className='badge badge-default badge-pill float-right badge-size'>{item.show.rating.average}</span>
+                                <div className='cast-item'>
+                                    {item.show.name}
+                                    <span className='badge badge-default badge-pill float-right badge-size'>{item.show.rating.average}</span>
+                                </div>
                             </Link>
                         </li>)}
                 </ul>
