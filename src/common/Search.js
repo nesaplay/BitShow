@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
+import { dataService } from '../services/dataService';
 import '../css/Search.css';
 
 class Search extends Component {
@@ -12,29 +12,19 @@ class Search extends Component {
             results: [],
             isHidden: false
         }
-
         this.delayTimer = null;
+    }
+
+    collectData = (results) => {
+        this.setState({ results });
     }
 
     valueHandler = () => {
         clearTimeout(this.delayTimer);
-        this.delayTimer = setTimeout(this.renderSearch, 300);
-    }
-
-    renderSearch = () => {
-
-        let query = this.search.value;
-
-        const config = {
-            method: 'get',
-            url: `http://api.tvmaze.com/search/shows?q=${query}`,
-            headers: { 'Content-Type': 'application/json' }
-        }
-
-        axios(config)
-            .then(({ data }) => this.setState({ results: data, isHidden: false }))
-            .catch(error => console.warn(error.response));
-
+        this.delayTimer = setTimeout(() => 
+            dataService.renderSearch(
+                this.search.value, this.collectData
+            ), 300);
     }
 
     reset = () => {
