@@ -35,3 +35,15 @@
     background-color: white;
     color: inherit;
 }
+
+.card-header {
+    padding: 0;
+}
+
+.drop-pad-head {
+    padding: .75rem 1.25rem;
+}
+/* 
+.mb-0, .my-0 {
+    margin-bottom: inherit;
+} */

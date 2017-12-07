@@ -47,7 +47,7 @@ export default class MovieDetails extends Component {
     }
 
     render() {
-        
+
         const { image, name, externals, _embedded, rating, summary, genres } = this.state.movie;
         const parsedSummary = summary.replace(/<([^>]|["']([^"']|\\["'])*["'])*>/g, '');
 
@@ -67,12 +67,14 @@ export default class MovieDetails extends Component {
                         <div id='accordion' role='tablist' aria-multiselectable='true'>
                             <div className='card'>
                                 <div className='card-header bg-header' role='tab' id='headingOne'>
-                                    <h5 className='mb-0'>
-                                        <a className='collapsed block' data-toggle='collapse' data-parent='#accordion' href='#collapseOne' aria-expanded='true' aria-controls='collapseOne'>
-                                            Summary
-                                        <span className='badge badge-light badge-pill float-right badge-size genre-format'>{genres[0]}</span>
-                                        </a>
-                                    </h5>
+                                    <a className='collapsed block' data-toggle='collapse' data-parent='#accordion' href='#collapseOne' aria-expanded='true' aria-controls='collapseOne'>
+                                        <div className='drop-pad-head'>
+                                            <h5 className=''>
+                                                Summary
+                                                <span className='badge badge-light badge-pill float-right badge-size genre-format'>{genres[0]}</span>
+                                            </h5>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div id='collapseOne' className='collapse' role='tabpanel' aria-labelledby='headingOne'>
                                     <div className='card card-body'>
@@ -82,17 +84,19 @@ export default class MovieDetails extends Component {
                             </div>
                             <div className='card'>
                                 <div className='card-header bg-header' role='tab' id='headingTwo'>
-                                    <h5 className='mb-0'>
-                                        <a className='collapsed block' data-toggle='collapse' data-parent='#accordion' href='#collapseTwo' aria-expanded='false' aria-controls='collapseTwo'>
-                                            Cast
-                                        <span className='badge badge-default badge-pill float-right badge-size'>{_embedded.cast.length}</span>
-                                        </a>
-                                    </h5>
+                                    <a className='collapsed block' data-toggle='collapse' data-parent='#accordion' href='#collapseTwo' aria-expanded='false' aria-controls='collapseTwo'>
+                                        <div className='drop-pad-head'>
+                                            <h5 className=''>
+                                                Cast
+                                                <span className='badge badge-default badge-pill float-right badge-size'>{_embedded.cast.length}</span>
+                                            </h5>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div id='collapseTwo' className='collapse' role='tabpanel' aria-labelledby='headingTwo'>
                                     <div className='card-block'>
                                         <ul className='list-group'>
-                                            {_embedded.cast.map((actor, id) => <CastPreview {...actor} key={id}/>)}
+                                            {_embedded.cast.map((actor, id) => <CastPreview {...actor} key={id} />)}
                                         </ul>
                                     </div>
                                 </div>
