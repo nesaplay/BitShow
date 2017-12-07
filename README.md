@@ -1,5 +1,7 @@
 # BitShow
-BitShow is a Single Page Application where you can search for existing TV shows or take a look at featured ones. Data provided by tvmaze.com/api
+BitShow is a Single Page Application where you can search for existing TV shows or take a look at featured ones. Data provided by tvmaze.com
+
+[DEMO](https://bit-show-react.herokuapp.com//)
 
 # Showcasing 
 
