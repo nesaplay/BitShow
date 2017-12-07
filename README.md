@@ -16,4 +16,4 @@ BitShow is a Single Page Application where you can search for existing TV shows 
     Framework:  React, Bootstrap
     Module Loader:  Webpack
     Package Manager:  Yarn
-
+    Deployment: Heroku
