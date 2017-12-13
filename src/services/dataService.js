@@ -3,31 +3,38 @@ import { BASE_URL, BASE_SEARCH_URL } from '../constants';
 
 class DataService {
 
-    fetchAllMovies(successHandler) {
+    async fetchAllMovies(successHandler) {
         const config = {
             method: 'get',
             url: BASE_URL,
             headers: { 'Content-Type': 'application/json' }
         };
 
-        axios(config)
-            .then(({ data }) => successHandler(data))
-            .catch(error => console.warn(error.response));
+        try {
+            const { data } = await axios(config);
+            successHandler(data);
+        } catch (error) {
+            console.warn(error.response.data.message);
+        }
+
     }
 
-    fetchSinglePost(showId, successHandler) {
+    async fetchSinglePost(showId, successHandler) {
         const config = {
             method: 'get',
             url: `${BASE_URL}/${showId}?embed[]=cast`,
             headers: { 'Content-Type': 'application/json' }
         };
 
-        axios(config)
-            .then(({ data }) => successHandler(data))
-            .catch(error => console.warn(error.response));
+        try {
+            const { data } = await axios(config);
+            successHandler(data);
+        } catch (error) {
+            console.warn(error.response.data.message);
+        }
     }
 
-    renderSearch(query, successHandler) {
+    async renderSearch(query, successHandler) {
 
         const config = {
             method: 'get',
@@ -35,9 +42,12 @@ class DataService {
             headers: { 'Content-Type': 'application/json' }
         }
 
-        axios(config)
-            .then(({ data }) => successHandler(data))
-            .catch(error => console.warn(error.response));
+        try {
+            const { data } = await axios(config);
+            successHandler(data);
+        } catch (error) {
+            console.warn(error.response.data.message);
+        }
 
     }
 }

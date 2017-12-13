@@ -16,7 +16,7 @@ class Footer extends Component {
         return (
             <footer className='footer'>
                 <div className='container'>
-                    <span className='footer-copyright'>Copyright 2017 <a href='http://radovanovic.me' target='_blank'>Nenad Radovanovic</a></span>
+                    <span className='footer-copyright'>Copyright 2017 <a href='http://radovanovic.me' target='_blank' rel='noopener noreferrer'>Nenad Radovanovic</a></span>
                     <span className='float-right'>{this.state.time}</span>
                 </div>
             </footer>
