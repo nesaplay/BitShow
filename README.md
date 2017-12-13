@@ -9,6 +9,7 @@ DEMO : [BITSHOW](https://bit-show-react.herokuapp.com//)
 
     -   React.js
     -   RESTFul API
+    -   Async/Await
     -   Stateful and Stateless components
     -   Routing
 
