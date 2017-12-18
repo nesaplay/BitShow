@@ -1,5 +1,5 @@
 # BitShow
-BitShow is a Single Page Application where you can search for existing TV shows or take a look at featured ones. Data provided by tvmaze.com. Fully responsive.
+BitShow is a Single Page Application built using React and Redux libraries, where you can search for existing TV shows or take a look at featured ones. Data provided by tvmaze.com. Fully responsive.
 
 DEMO : [BITSHOW](https://bit-show-react.herokuapp.com//)  
 
@@ -7,7 +7,7 @@ DEMO : [BITSHOW](https://bit-show-react.herokuapp.com//)
 
 # Showcasing 
 
-    -   React.js
+    -   React + Redux
     -   RESTFul API
     -   Async/Await
     -   Stateful and Stateless components
@@ -16,7 +16,7 @@ DEMO : [BITSHOW](https://bit-show-react.herokuapp.com//)
 # Stack
 
     Language:   HTML5, CSS3, JS(ES6)
-    Framework:  React, Bootstrap
+    Framework:  React + Redux, Bootstrap
     Module Loader:  Webpack
     Package Manager:  Yarn
     Deployment: Heroku
