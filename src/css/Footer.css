@@ -5,7 +5,26 @@
     background-color: #E2DCDE;
 }
 
+.footer-time {
+    display: inline;
+}
+
 .footer-copyright a {
     color: inherit;
     text-decoration: none;
+}
+
+.display-footer {
+    text-align: inherit;
+}
+
+
+@media screen and (max-width: 576px) {
+    .footer-time {
+        display: none;
+    }
+
+    .display-footer {
+        text-align: center;
+    }
 }

@@ -15,9 +15,9 @@ class Footer extends Component {
     render() {
         return (
             <footer className='footer'>
-                <div className='container'>
+                <div className='container display-footer'>
                     <span className='footer-copyright'>Copyright 2017 <a href='http://radovanovic.me' target='_blank' rel='noopener noreferrer'>Nenad Radovanovic</a></span>
-                    <span className='float-right'>{this.state.time}</span>
+                    <span className='float-right footer-time'>{this.state.time}</span>
                 </div>
             </footer>
         );
