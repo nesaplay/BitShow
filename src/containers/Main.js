@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchAllMovies } from '../actions/index';
 
-import { dataService } from '../services/dataService';
-import MoviePreview from '../movie/MoviePreview';
+import MoviePreview from '../components/movie/MoviePreview';
 import '../css/Main.css';
 
-export default class Main extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = this.initState();
-    }
-
-    initState() {
-        return {
-            movies: []
-        }
-    }
+class Main extends Component {
 
     collectData = movies => {
         this.setState({ movies });
@@ -25,7 +15,7 @@ export default class Main extends Component {
 
     displayMovies() {
         return (
-            this.state.movies.map(movie =>
+            this.props.moviesList.map(movie =>
                 <MoviePreview {...movie} key={movie.id} />
             )
         )
@@ -33,7 +23,7 @@ export default class Main extends Component {
 
     // Lifecycle Methods
     componentDidMount() {
-        dataService.fetchAllMovies(this.collectData);
+        this.props.fetchAllMovies();
     }
 
     render() {
@@ -49,3 +39,9 @@ export default class Main extends Component {
         );
     }
 }
+
+function mapStateToProps({ moviesList }) {
+    return { moviesList };
+}
+
+export default connect(mapStateToProps, { fetchAllMovies })(Main)

@@ -7,3 +7,15 @@
     text-transform: uppercase;
     color: #E2DCDE;
 }
+
+.header-sizing {
+    padding-left: inherit;
+    padding-right: inherit;
+}
+
+@media screen and (max-width: 576px) {
+    .header-sizing {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}

@@ -1,48 +1,38 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { renderSearch, resetSearch } from '../actions/index';
 
-import { dataService } from '../services/dataService';
 import '../css/Search.css';
 
 class Search extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            results: [],
-            isHidden: false
-        }
+        
         this.delayTimer = null;
-    }
-
-    collectData = (results) => {
-        this.setState({ results });
     }
 
     valueHandler = () => {
         clearTimeout(this.delayTimer);
         this.delayTimer = setTimeout(() => {
-            this.setState({ isHidden: false });
-            dataService.renderSearch(
-                this.search.value, this.collectData
-            )
+            this.props.renderSearch(this.search.value);
         }, 300);
     }
 
     reset = () => {
         this.search.value = '';
-        this.setState({ isHidden: true })
+        this.props.resetSearch();
     }
 
     render() {
 
-        const { results } = this.state;
+        const { searchList } = this.props.searchData;
 
         return (
             <form className='form-inline search-form' onSubmit={e => { e.preventDefault() }}>
                 <input className='form-control mr-sm-2' id='search' type='search' ref={node => { this.search = node }} onChange={this.valueHandler} placeholder='Search' aria-label='Search' />
-                <ul className={['search-list', 'list-group', 'list-group-flush', this.state.isHidden && 'd-none'].join(' ')}>
-                    {results.map(item =>
+                <ul className={['search-list', 'list-group', 'list-group-flush', this.props.searchData.isHidden && 'd-none'].join(' ')}>
+                    {searchList.map(item =>
                         <li className='list-group-item border search-list-item' key={item.show.id} onClick={this.reset}>
                             <Link className='search-link-item' to={`/${item.show.id}`}>
                                 <div className='cast-item'>
@@ -57,4 +47,8 @@ class Search extends Component {
     }
 }
 
-export default Search;
+function mapStateToProps({ searchData }) {
+    return { searchData };
+}
+
+export default connect(mapStateToProps, { renderSearch, resetSearch })(Search);

@@ -1,61 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchSinglePost } from '../actions/index';
 
-import { dataService } from '../services/dataService';
-import CastPreview from './CastPreview';
+import { IMG_PLACEHOLDER } from '../constants';
+import CastPreview from '../components/movie/CastPreview';
 import '../css/MovieDetails.css';
 
-export default class MovieDetails extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = this.initState();
-    }
-
-    initState() {
-        return {
-            movie: {
-                image: {
-                    original: 'http://via.placeholder.com/700x1000'
-                },
-                name: '',
-                rating: {
-                    average: 'N/A'
-                },
-                externals: {
-                    imdb: ''
-                },
-                _embedded: {
-                    seasons: [],
-                    cast: []
-                },
-                summary: '',
-                genres: ['']
-            }
-        }
-    }
-
-    collectData = movie => {
-        this.setState({ movie });
-    }
+class MovieDetails extends Component {
 
     componentDidMount() {
-        dataService.fetchSinglePost(this.props.match.params.id, this.collectData);
+        this.props.fetchSinglePost(this.props.match.params.id);
     }
 
     componentWillReceiveProps(nextProps) {
-        dataService.fetchSinglePost(nextProps.match.params.id, this.collectData)
+        this.props.fetchSinglePost(this.props.match.params.id);
     }
 
     render() {
 
-        const { image, name, externals, _embedded, rating, summary, genres } = this.state.movie;
+        const { image, name, externals, _embedded, rating, summary, genres } = this.props.singleMovie;
+        const original = image ? image.original : IMG_PLACEHOLDER;
         const parsedSummary = summary.replace(/<([^>]|["']([^"']|\\["'])*["'])*>/g, '');
 
         return (
             <main className='main-div'>
                 <div className='container movie-info'>
                     <div className='card'>
-                        <img className='card-img-top' src={image.original} alt='' />
+                        <img className='card-img-top' src={original} alt='' />
                         <div className='card-block container text-center title-bar'>
                             <h4 className='card-title'>{name}</h4>
                             <p className='card-text'>IMDB Rating :
@@ -108,3 +79,9 @@ export default class MovieDetails extends Component {
         );
     }
 };
+
+function mapStateToProps({ singleMovie }) {
+    return { singleMovie };
+}
+
+export default connect(mapStateToProps, { fetchSinglePost })(MovieDetails);

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { IMG_PLACEHOLDER } from '../constants';
 
-import '../css/MoviePreview.css';
+import { IMG_PLACEHOLDER } from '../../constants';
+import '../../css/MoviePreview.css';
 
 const MoviePreview = props => {
 

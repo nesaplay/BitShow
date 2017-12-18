@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Header from '../common/Header';
-import Main from '../main/Main';
-import Footer from '../common/Footer';
-import MovieDetails from '../movie/MovieDetails';
-import '../css/App.css';
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
+import Main from './containers/Main';
+import MovieDetails from './containers/MovieDetails';
+import './css/App.css';
 
 class App extends Component {
     render() {

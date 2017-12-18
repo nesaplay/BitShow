@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ICO_PLACEHOLDER } from '../constants';
-import '../css/CastPreview.css';
+
+import { ICO_PLACEHOLDER } from '../../constants';
+import '../../css/CastPreview.css';
 
 const CastPreview = props => {
 
