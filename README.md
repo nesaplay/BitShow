@@ -1,9 +1,7 @@
 # BitShow
 BitShow is a Single Page Application built using React and Redux libraries, where you can search for existing TV shows or take a look at featured ones. Data provided by tvmaze.com. Fully responsive.
 
-DEMO : [BITSHOW](https://bit-show-react.herokuapp.com//)  
-
-(might take couple seconds to boot)
+DEMO : [BITSHOW](https://nesaplay.github.io/BitShow/)  
 
 # Showcasing 
 
