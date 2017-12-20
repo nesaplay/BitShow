@@ -11,7 +11,7 @@ const MoviePreview = props => {
     const imageSrc = image ? image.medium : IMG_PLACEHOLDER;
 
     return (
-        <article className='col-sm-6 col-md-4 col-lg-3 preview'>
+        <article className='col-sm-6 col-md-4 col-lg-3 preview slide-up-fade-in'>
             <Link to={`/${id}`}>
                 <div className="card">
                     <div className='container-item'>

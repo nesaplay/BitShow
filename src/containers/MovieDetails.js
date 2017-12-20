@@ -16,7 +16,7 @@ class MovieDetails extends Component {
         const parsedSummary = summary.replace(/<([^>]|["']([^"']|\\["'])*["'])*>/g, '');
 
         return (
-            <div className='container movie-info'>
+            <div className='container movie-info slide-up-fade-in'>
             <div className='card'>
                 <img className='card-img-top' src={original} alt='' />
                 <div className='card-block container text-center title-bar'>
