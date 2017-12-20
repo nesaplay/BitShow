@@ -13,10 +13,17 @@ import App from './App';
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 render(
-    <Provider store={createStoreWithMiddleware(reducers)}>
-        <HashRouter>
-            <App />
-        </HashRouter>
-    </Provider>,
-    document.getElementById('root'));
+  <Provider
+    store={createStoreWithMiddleware(
+      reducers,
+      window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__()
+    )}
+  >
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </Provider>,
+  document.getElementById('root')
+);
 registerServiceWorker();

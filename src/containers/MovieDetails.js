@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchSinglePost } from '../actions/index';
 
 import { IMG_PLACEHOLDER } from '../constants';
+import Spinner from '../components/common/Spinner';
 import CastPreview from '../components/movie/CastPreview';
 import '../css/MovieDetails.css';
 
@@ -13,16 +14,23 @@ class MovieDetails extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.props.fetchSinglePost(this.props.match.params.id);
+        if (this.props.match.params.id !== nextProps.match.params.id) {
+            nextProps.fetchSinglePost(nextProps.match.params.id);
+        }
     }
 
     render() {
 
-        const { image, name, externals, _embedded, rating, summary, genres } = this.props.singleMovie;
+        const { image, name, externals, _embedded, rating, summary, genres } = this.props.singleMovie.movie;
         const original = image ? image.original : IMG_PLACEHOLDER;
         const parsedSummary = summary.replace(/<([^>]|["']([^"']|\\["'])*["'])*>/g, '');
+        const { loaded } = this.props.singleMovie;
 
-        return (
+
+
+        return !loaded ? (
+            <Spinner />
+          ) : (
             <main className='main-div'>
                 <div className='container movie-info'>
                     <div className='card'>
